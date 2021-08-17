@@ -1,17 +1,19 @@
 <?php
 namespace MVC\Controllers;
 use MVC\Core\Controller;
-use MVC\Models\Task;
+use MVC\Models\TaskModel;
+use MVC\Repo\TaskRepository;
 class TasksController extends Controller
 {
+
     function index()
     {
-        echo "index";
-        $tasks = new Task();
-//        $d['tasks'] = $tasks->showAllTasks();
-//        var_dump($d);
-//            $this->set($d);
-//        $this->render("index");
+
+$tasks= new TaskRepository();
+//var_dump($tasks->getAll());
+        $d['tasks'] = $tasks->showAllTasks();
+            $this->set($d);
+        $this->render("index");
 
     }
 
@@ -21,7 +23,7 @@ class TasksController extends Controller
         if (isset($_POST["title"]))
         {
 
-            $task= new Task();
+            $task= new TaskRepository();
 
             if ($task->create($_POST["title"], $_POST["description"]))
             {
@@ -34,8 +36,7 @@ class TasksController extends Controller
 
     function edit($id)
     {
-        $task= new Task();
-
+        $task= new TaskRepository();
         $d["task"] = $task->showTask($id);
 
         if (isset($_POST["title"]))
@@ -51,7 +52,7 @@ class TasksController extends Controller
 
     function delete($id)
     {
-        $task = new Task();
+        $task= new TaskRepository();
         if ($task->delete($id))
         {
             header("Location: " . WEBROOT . "");

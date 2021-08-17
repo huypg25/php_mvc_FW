@@ -1,5 +1,6 @@
 <?php
 namespace MVC\Core;
+
     class Controller
     {
         var $vars = [];
@@ -8,6 +9,7 @@ namespace MVC\Core;
         function set($d)
         {
             $this->vars = array_merge($this->vars, $d);
+//            var_dump($this->vars);
         }
 
         function render($filename)
