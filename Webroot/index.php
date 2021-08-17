@@ -3,8 +3,7 @@
 define('WEBROOT', str_replace("Webroot/index.php", "", $_SERVER["SCRIPT_NAME"]));
 define('ROOT', str_replace("Webroot/index.php", "", $_SERVER["SCRIPT_FILENAME"]));
 define('BASEPATH', str_replace("Webroot/index.php", "", $_SERVER["SCRIPT_FILENAME"]));
-use Doctrine\ORM\Tools\Setup;
-use Doctrine\ORM\EntityManager;
+
 //require(ROOT . 'Config/core.php');
 //
 //require(ROOT . 'router.php');
